@@ -1,20 +1,27 @@
 class Solution {
     
-    public static void backtracking(int arr[],ArrayList<Integer> al,ArrayList<ArrayList<Integer>> group,int i){
-        if(i==arr.length){
-        group.add(new ArrayList<>(al));
-        return ;
-        }
-        al.add(arr[i]);
-       backtracking(arr,al,group,i+1);
-       al.remove(al.size()-1);
-          backtracking(arr,al,group,i+1);
+    public static void sets(int arr[],int idx,ArrayList<Integer> oneD,ArrayList<ArrayList<Integer>> group){
+        
+     
+             if(idx==arr.length){
+                 group.add(new ArrayList<>(oneD) );
+                 return ;
+             }
+             
+            
+             oneD.add(arr[idx]);
+             sets(arr,idx+1,oneD,group);
+             oneD.remove(oneD.size()-1);
+             sets(arr,idx+1,oneD,group);
+         
+        
     }
+    
     public ArrayList<ArrayList<Integer>> subsets(int arr[]) {
-       ArrayList<ArrayList<Integer>> group=new ArrayList<>();
-       
-       ArrayList<Integer> al=new ArrayList<>();
-        backtracking(arr,al,group,0);
-        return group;
+     ArrayList<ArrayList<Integer>> group = new ArrayList<>();
+     ArrayList<Integer> oneD=new ArrayList<>();
+     sets(arr,0,oneD,group);
+     return group;
+        
     }
 }
