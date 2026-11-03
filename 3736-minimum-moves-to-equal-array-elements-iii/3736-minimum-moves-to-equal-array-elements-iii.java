@@ -7,22 +7,18 @@ class Solution {
             }
         }
         int move=0;
-        while(true){
-            boolean equal=true;
+        
             for(int i=0;i<nums.length;i++){
-                if(nums[i]<largest){
-                    nums[i]+=1;
-                    move++;
-                    equal =false;
-                }
+                 
+                 if(nums[i]<largest){
+                    move+=largest-nums[i];
+                 }
             }
-            if(equal){
-                break;
-            }
+            return move;
 
         }
-          return move;
-    }
+         
+    
 }
 
 // Synced seamlessly with LeetHub Pro
