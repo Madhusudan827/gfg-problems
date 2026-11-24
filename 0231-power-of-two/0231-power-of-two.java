@@ -4,7 +4,7 @@ class Solution {
             return false;
         }
         int ans=0;
-       for(int i=0;i<=n;i++){
+       for(int i=0;i<=(int)Math.sqrt(n)+1;i++){
         ans= (int)Math.pow(2,i);
         if(ans==n){
            break;
