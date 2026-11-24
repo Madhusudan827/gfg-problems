@@ -1,24 +1,13 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-        if(n<0){
+        if(n<=0){
             return false;
         }
-        int ans=0;
-       for(int i=0;i<=(int)Math.sqrt(n)+1;i++){
-        ans= (int)Math.pow(2,i);
-        if(ans==n){
-           break;
-        
-         }else if(ans>n){
-            return false;
-          }
-     }    
-          if(ans>=Integer.MIN_VALUE && ans<Integer.MAX_VALUE){
+        if( (n&n-1)==0){
             return true;
-          }
-           return false;
+        }
+        return false;
     }
-  
 }
 
 // Synced seamlessly with LeetHub Pro
