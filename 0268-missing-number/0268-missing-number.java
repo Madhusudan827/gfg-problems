@@ -1,25 +1,19 @@
 class Solution {
     public int missingNumber(int[] nums) {
-       
-        HashMap<Integer,Integer> hm=new HashMap<>();
-       
+        HashMap<Integer,Integer> map=new HashMap<>();
         for(int i=0;i<=nums.length;i++){
-            hm.put(i,0);
+                map.put(i,0);
         }
         for(int i=0;i<nums.length;i++){
-           if(hm.containsKey(nums[i])){
-                    hm.put(nums[i],1);
-           }
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
-        Set<Integer> keys=hm.keySet();
+        Set<Integer> keys=map.keySet();
         for(Integer key:keys){
-               if(hm.get(key)==0){
+              if(map.get(key)==0){
                 return key;
-               }
+              }
         }
-       
-       return -1;
-
+        return -1;
     }
 }
 
