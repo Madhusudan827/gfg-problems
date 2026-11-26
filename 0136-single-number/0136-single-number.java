@@ -1,11 +1,12 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int single=0;
-        for(int num:nums){
-            single^=num;
-
+        int ele=0;
+        int i=0;
+        while(i<nums.length){
+            ele^=nums[i];
+            i++;
         }
-        return single;
+        return ele;
     }
 }
 
