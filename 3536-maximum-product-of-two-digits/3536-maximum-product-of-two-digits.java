@@ -1,13 +1,21 @@
 class Solution {
     public int maxProduct(int n) {
-      ArrayList<Integer> al=new ArrayList<>();
+      int max1=Integer.MIN_VALUE;
+      int max2=Integer.MIN_VALUE;
         int product=1;
         while(n>0){
-           al.add(n%10); 
-            n=n/10;
+            int temp=n%10;
+           if(max1<temp){
+            max2=max1;
+            max1=temp;
+           }else if(max2<temp){
+            max2=temp;
+           }
+           n=n/10;
+
         }
-        Collections.sort(al);
-        product=al.get(al.size()-2)*al.get(al.size()-1);
+        
+        product=max1*max2;
         return product;
     }
 }
